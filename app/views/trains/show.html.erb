@@ -1,4 +1,19 @@
 <p id="notice"><%= notice %></p>
+<div>Номер поезда:</div>
+<div><%= @train.number %></div>
+
+<div>Количество вагонов:</div>
+<div><%= @train.carriages.length %></div>
+<div>Купе: <%= @comfort_carriages.length%> Количество мест: <%= @comfort_seats%></div>
+<div>Плацкарт: <%= @economy_carriages.length%>  Количество мест: <%= @economy_seats%></div>
+
+
+<div>Маршрут:</div>
+<% unless @train.route.nil? %>
+  <div><%= @train.route.name %></div>
+<% else %>
+  <div>Маршрут не назначен!</div>
+<% end %>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

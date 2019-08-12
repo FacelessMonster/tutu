@@ -5,8 +5,8 @@ class Carriage < ApplicationRecord
 
   before_save :set_number
 
-  scope :economy, -> { where(type: 'EconomyCarriage', seats: 54) }
-  scope :comfort, -> { where(type: 'ComfortCarriage', seats: 36) }
+  # scope :economy, -> { where(type: 'EconomyCarriage', seats: 54) }
+  # scope :comfort, -> { where(type: 'ComfortCarriage', seats: 36) }
 
   def set_number
     self.number = (self.train.carriages.count.to_i) + 1

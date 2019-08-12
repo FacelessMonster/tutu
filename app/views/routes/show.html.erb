@@ -1,3 +1,11 @@
-<h2><%= @route.start %> - <%= @route.finish %></h2>
+<h2><%= @route.name %></h2>
+<table>
+  <tbody>
+    <div>Список поездов на маршруте:</div>
+    <% @route.trains.each do |train|%>
+    <td><%= train.number %></td>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to 'Edit', edit_route_path(@route)%>
 <%= link_to 'Back', routes_path %>
