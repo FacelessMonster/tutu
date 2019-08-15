@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<div>Номер билета:</div>
+<div><%= @ticket.number %></div>
+
+<div>От:</div>
+<div><%= @ticket.start_station.title %></div>
+<div>До:</div>
+<div><%= @ticket.end_station.title %></div>
+
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>
