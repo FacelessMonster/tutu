@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="actions">
-    <%= form.label :name%>
-    <%= form.text_field :name%>
+  <%= form.text_field :name%>
+  <div class="field">
+    <% RailwayStation.all.each do |model|%>
+      <%= check_box_tag('model_ids[]', model.id, checked = route.railway_stations.include?(model)) %>
+      <%= label_tag model.title%>
+    <%end%>
+  </div>
     <%= form.submit %>
   </div>
 <% end %>
