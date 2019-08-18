@@ -3,5 +3,5 @@ class Route < ApplicationRecord
   has_many :railway_stations, through: :stations_routes
   has_many :trains, class_name: "Train", foreign_key: "route_id"
 
-  validates :name, uniqueness: true
+  # validates :name, uniqueness: true
 end
