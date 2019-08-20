@@ -1,11 +1,13 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  before_action :set_stations, only: [:show, :edit, :update, :destroy]
 
   def index
     @routes = Route.all
   end
 
   def show
+    @stations = @route.railway_stations.order(:position)
   end
 
   def new
@@ -41,6 +43,7 @@ class RoutesController < ApplicationController
     redirect_to routes_path
   end
 
+
   private
 
   def params_route
@@ -49,5 +52,9 @@ class RoutesController < ApplicationController
 
   def set_route
     @route = Route.find(params[:id])
+  end
+
+  def set_stations
+    @sr = @route.stations_routes.order(:position).all
   end
 end

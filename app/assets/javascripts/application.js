@@ -14,3 +14,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require jquery-ui/widget
+//= require jquery-ui/widgets/sortable
+//= require popper
+//= require bootstrap
+//= require jquery_ujs
+//= require rails_sortable
+
+
