@@ -22,4 +22,10 @@
 //= require jquery_ujs
 //= require rails_sortable
 
+$(document).on("turbolinks:load", function() {
 
+  $(function() {
+    $('.sortable').railsSortable();
+  });
+
+});

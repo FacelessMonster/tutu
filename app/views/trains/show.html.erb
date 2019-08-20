@@ -14,6 +14,20 @@
 <% else %>
   <div>Маршрут не назначен!</div>
 <% end %>
+<hr/>
+<div class="card-columns">
+  <% @train.carriages.each do |carriage| %>
+    <%= link_to train_carriage_path(@train, carriage) do %>
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Вагон № <%= carriage.number%>.</div>
+        <div class="card-body">
+          <h5 class="card-title">Тип вагона: <%= carriage.type%>.</h5>
+          <p class="card-text">Количество мест: <%= carriage.seats%>.</p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

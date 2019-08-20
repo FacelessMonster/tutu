@@ -1,4 +1,9 @@
 class CarriagesController < ApplicationController
+
+  def show
+    @carriage = Carriage.find(params[:id])
+  end
+
   def create
     @train = Train.find(params[:train_id])
     @train.carriages.create(params_carriage)
