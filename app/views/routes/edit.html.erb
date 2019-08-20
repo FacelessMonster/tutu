@@ -1,5 +1,16 @@
 <h1>Editing Route "<%= @route.name %>"</h1>
 <%= render 'form', route: @route %>
+<b>Маршрут:</b>
+<ul id="stations" class="list-group sortable">
+  <% @sr.each_with_sortable_id do |sr, sortable_id| %>
+      <%= link_to sr.railway_station.title, sr.railway_station, class: "list-group-item", id: sortable_id %>
+  <% end %>
+</ul>
 
-<%= link_to 'Show', @route %> |
+<%= link_to 'Show', @route %>|
 <%= link_to 'Back', routes_path %>
+<script>
+$(function() {
+  $('.sortable').railsSortable();
+});
+</script>

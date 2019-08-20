@@ -5,7 +5,15 @@
     <% @route.trains.each do |train|%>
     <td><%= train.number %></td>
     <% end %>
+    <hr/>
   </tbody>
 </table>
+
+<b>Маршрут:</b>
+<ul class="list-group">
+  <% @stations.each do |station| %>
+      <%= link_to station.title, station, class: "list-group-item" %>
+  <% end %>
+</ul>
 <%= link_to 'Edit', edit_route_path(@route)%>
 <%= link_to 'Back', routes_path %>
