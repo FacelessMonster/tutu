@@ -1,20 +1,14 @@
 <p id="notice"><%= notice %></p>
-<div>Номер поезда:</div>
-<div><%= @train.number %></div>
-
-<div>Количество вагонов:</div>
-<div><%= @train.carriages.length %></div>
-<div>Купе: <%= @comfort_carriages.length%> Количество мест: <%= @comfort_seats%></div>
-<div>Плацкарт: <%= @economy_carriages.length%>  Количество мест: <%= @economy_seats%></div>
-
-
-<div>Маршрут:</div>
+<p>Номер поезда: <%= @train.number %></p>
+<p>Маршрут: 
 <% unless @train.route.nil? %>
-  <div><%= @train.route.name %></div>
+  <%= link_to @train.route.name, @train.route %>
 <% else %>
-  <div>Маршрут не назначен!</div>
-<% end %>
-<hr/>
+  Маршрут не назначен!
+<% end %></p></hr>
+<p>Количество вагонов: <%= @train.carriages.length %></p>
+<p>Купе: <%= @comfort_carriages.length%> Количество мест: <%= @comfort_seats%></p>
+<p>Плацкарт: <%= @economy_carriages.length%>  Количество мест: <%= @economy_seats%></p><hr/>
 <div class="card-columns">
   <% @train.carriages.each do |carriage| %>
     <%= link_to train_carriage_path(@train, carriage) do %>
@@ -30,4 +24,4 @@
 </div>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'All trains', trains_path %>
