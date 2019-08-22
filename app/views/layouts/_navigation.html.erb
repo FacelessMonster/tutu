@@ -1,0 +1,22 @@
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <%=link_to root_path do %>
+      <img class="nav-brand" src="/tutu1.png" width="64" height="32" alt="">
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= trains_path %>">Trains</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= routes_path %>">Routes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= railway_stations_path %>">Stations</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
