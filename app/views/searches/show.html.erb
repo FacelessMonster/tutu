@@ -1,0 +1,7 @@
+<%= form_tag new_search_path, method: "get" do %>
+<%= label_tag "From"%>
+<%= text_field_tag :from %><br/>
+<%= label_tag "To"%>
+<%= text_field_tag :to %>
+<%= submit_tag "Search" %>
+<% end %>

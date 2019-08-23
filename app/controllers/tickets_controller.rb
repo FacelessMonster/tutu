@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :collect_stations
-  before_action :authenticate_user!
+#  before_action :authenticate_user!
 
   def index
     @tickets = current_user.tickets.all

@@ -1,0 +1,7 @@
+<p>From: <%= @from.title %></p>
+<p>To: <%= @to.title %></p>
+<% if @test.empty? %>
+<p>No routes</p>
+<% else %>
+<%= @test.inspect %>
+<% end %>

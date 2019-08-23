@@ -1,12 +1,24 @@
 @import "bootstrap";
+
+
 #footer {
   position: fixed;
   bottom: 1%; right: 1%;
+  font-size: 70%;
+  color: rgba(108, 122, 137, 0.7);
 }
 
 .navbar {
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+a {
+  color: rgb(39, 41, 41);
+}
+
+a:hover {
+  color: rgba(108, 122, 137, 1);
 }
 
 .nav-brand {
