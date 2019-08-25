@@ -12,11 +12,18 @@
   <% end %>
 
   <div class="actions">
-  <%= form.text_field :name%>
+  <div class="form-group">
+    <%= label_tag "Route's name"%>
+    <%= form.text_field :name, class: "form-control"%>
+  </div>
   <div class="field">
     <% RailwayStation.all.each do |model|%>
-      <%= check_box_tag('model_ids[]', model.id, checked = route.railway_stations.include?(model)) %>
-      <%= label_tag model.title%>
+      <div class="form-group">
+        <%= check_box_tag('model_ids[]', model.id, checked = route.railway_stations.include?(model)) %>
+        <%= label_tag model.title%>
+        <%= text_field_tag "times[#{model.id}]", nil, value: route.stations_routes.find_by(railway_station_id: model.id).try(:time) %>
+        <%= label_tag "Time"%>
+      </div>
     <%end%>
   </div>
     <%= form.submit %>

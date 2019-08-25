@@ -19,6 +19,8 @@ class RoutesController < ApplicationController
     @route = Route.new(params_route)
       if @route.save
         @route.railway_stations = @railway_stations
+        @times = params[:times]
+        Route.set_times(@route, @times)
         redirect_to @route
       else
         render :new
@@ -32,6 +34,8 @@ class RoutesController < ApplicationController
     @railway_stations = RailwayStation.find(params[:model_ids])
     if @route.update(params_route)
       @route.railway_stations = @railway_stations
+      @times = params[:times]
+      Route.set_times(@route, @times)
       redirect_to @route
     else
       render :edit
@@ -47,7 +51,7 @@ class RoutesController < ApplicationController
   private
 
   def params_route
-    params.require(:route).permit(:name)
+    params.require(:route).permit(:name, :time)
   end
 
   def set_route

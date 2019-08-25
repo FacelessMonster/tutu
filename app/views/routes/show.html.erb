@@ -10,7 +10,10 @@
     <p><b>Маршрут:</b></p>
     <ul class="list-group">
       <% @stations.each do |station| %>
-          <%= link_to station.title, station, class: "list-group-item" %>
+          <%= link_to station, class: "list-group-item" do %>
+          <span><%= station.title %></span>
+          <p style="text-align: right;"><%= @route.stations_routes.find_by(railway_station_id: station.id).time %></p>
+          <% end %>
       <% end %>
     </ul>
   </div>
