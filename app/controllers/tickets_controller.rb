@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :collect_stations
-#  before_action :authenticate_user!
+  before_action :authenticate_user!, only: :create
 
   def index
     @tickets = current_user.tickets.all
@@ -14,6 +14,9 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    @from = params[:start_station_id]
+    @to = params[:end_station_id]
+    @route = Route.find_by(id: params[:route])
   end
 
   # GET /tickets/1/edit
