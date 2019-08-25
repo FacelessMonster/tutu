@@ -1,7 +1,18 @@
-<p>From: <%= @from.title %></p>
-<p>To: <%= @to.title %></p>
-<% if @test.empty? %>
+<%= render "form" %><hr/>
+<% if @routes.empty? %>
 <p>No routes</p>
 <% else %>
-<%= @test.inspect %>
+<% @routes.each do |route| %>
+<div class="jumbotron">
+  <h5 class="lead">Route: <%= route.name %></h5>
+  <hr class="my-4">
+  <h3 class="display-8"><%= @from.title %> </h3>
+  <%= route.stations_routes.find_by(railway_station_id: @from.id).try(:time) %>
+  <div style="text-align: right;">
+  <%= route.stations_routes.find_by(railway_station_id: @to.id).try(:time) %>
+  <h3 class="display-8"> <%= @to.title %></h3>
+  <div>
+  <a class="btn btn-info btn-lg" href="#" role="button">Buy ticket</a>
+</div>
 <% end %>
+<% end %> 
