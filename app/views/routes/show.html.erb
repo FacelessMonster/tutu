@@ -12,7 +12,7 @@
       <% @stations.each do |station| %>
           <%= link_to station, class: "list-group-item" do %>
           <span><%= station.title %></span>
-          <p style="text-align: right;"><%= @route.stations_routes.find_by(railway_station_id: station.id).time %></p>
+          <span style="float: right;"><%= @route.stations_routes.find_by(railway_station_id: station.id).time %></span>
           <% end %>
       <% end %>
     </ul>

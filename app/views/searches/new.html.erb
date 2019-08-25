@@ -1,18 +1,25 @@
-<%= render "form" %><hr/>
-<% if @routes.empty? %>
-<p>No routes</p>
-<% else %>
-<% @routes.each do |route| %>
-<div class="jumbotron">
-  <h5 class="lead">Route: <%= route.name %></h5>
-  <hr class="my-4">
-  <h3 class="display-8"><%= @from.title %> </h3>
-  <%= route.stations_routes.find_by(railway_station_id: @from.id).try(:time) %>
-  <div style="text-align: right;">
-  <%= route.stations_routes.find_by(railway_station_id: @to.id).try(:time) %>
-  <h3 class="display-8"> <%= @to.title %></h3>
-  <div>
-  <a class="btn btn-info btn-lg" href="#" role="button">Buy ticket</a>
+<div class="container">
+  <%= render "form" %><hr/>
+  <% if @routes.empty? %>
+    <p>No routes</p>
+  <% else %>
+    <% @routes.each do |route| %>
+      <div class="jumbotron">
+        <%= form_tag new_ticket_path, method: "get" do%>
+          <h5 class="lead">Route: <%= route.name %></h5>
+          <hr class="my-4">
+          <h3 class="display-8"><%= @from.title %> </h3>
+          <%= hidden_field_tag :start_station_id, nil, value: @from.id %>
+          <%= hidden_field_tag :end_station_id, nil, value: @to.id %>
+          <%= hidden_field_tag :route, nil, value: route.id %>
+          <%= route.stations_routes.find_by(railway_station_id: @from.id).try(:time) %>
+          <div style="text-align: right;">
+          <%= route.stations_routes.find_by(railway_station_id: @to.id).try(:time) %>
+          <h3 class="display-8"> <%= @to.title %></h3>
+          <div>
+          <%= submit_tag "Buy ticket", class: "btn btn-dark btn-lg" %>
+        <%end%>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-<% end %>
-<% end %> 
