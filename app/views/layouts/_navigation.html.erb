@@ -8,18 +8,29 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+        <% if user_signed_in? && current_user.admin? %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= trains_path %>">Trains</a>
+          <a class="nav-link" href="<%= admin_trains_path %>">Trains</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= routes_path %>">Routes</a>
+          <a class="nav-link" href="<%= admin_routes_path %>">Routes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= railway_stations_path %>">Stations</a>
+          <a class="nav-link" href="<%= admin_railway_stations_path %>">Stations</a>
         </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="<%= search_path %>">Ticket search</a>
         </li>
+        <% unless signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>">Log in</a>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Quit", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+        <% end %>
       </ul>
     </div>
   </nav>

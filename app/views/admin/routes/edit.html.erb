@@ -3,10 +3,10 @@
 <b>Маршрут:</b>
 <ul id="stations" class="list-group sortable">
   <% @sr.each_with_sortable_id do |sr, sortable_id| %>
-      <%= link_to sr.railway_station.title, sr.railway_station, class: "list-group-item", id: sortable_id %>
+      <%= link_to sr.railway_station.title, [:admin, sr.railway_station], class: "list-group-item", id: sortable_id %>
   <% end %>
 </ul>
 
-<%= link_to 'Show', @route %>|
-<%= link_to 'Back', routes_path %>
+<%= link_to 'Show', admin_route_path(@route) %>|
+<%= link_to 'Back', admin_routes_path %>
 

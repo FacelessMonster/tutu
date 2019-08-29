@@ -1,7 +1,7 @@
 <h2><%= @route.name %></h2>
   <p>Список поездов на маршруте:</p>
   <% @route.trains.each do |train|%>
-  <p><%= link_to train.number, train %></p>
+  <p><%= link_to train.number, admin_train_path(train) %></p>
   <% end %>
   <hr/>
 
@@ -10,7 +10,7 @@
     <p><b>Маршрут:</b></p>
     <ul class="list-group">
       <% @stations.each do |station| %>
-          <%= link_to station, class: "list-group-item" do %>
+          <%= link_to admin_railway_station_path(station), class: "list-group-item" do %>
           <span><%= station.title %></span>
           <span style="float: right;"><%= @route.stations_routes.find_by(railway_station_id: station.id).time %></span>
           <% end %>
@@ -18,5 +18,5 @@
     </ul>
   </div>
 </div>
-<%= link_to 'Edit', edit_route_path(@route)%>
-<%= link_to 'All routes', routes_path %>
+<%= link_to 'Edit', edit_admin_route_path(@route)%>
+<%= link_to 'All routes', admin_routes_path %>

@@ -15,7 +15,6 @@
         <td><%= ticket.start_station.title %></td>
         <td><%= ticket.end_station.title %></td>
         <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,6 +23,5 @@
 
 <br>
 
-<%= link_to 'New Train', new_ticket_path %><br/>
-<%= link_to 'Railway Stations', railway_stations_path %><br/>
-<%= link_to 'Routes', routes_path %>
+<%= link_to 'Railway Stations', admin_railway_stations_path %><br/>
+<%= link_to 'Routes', admin_routes_path %>

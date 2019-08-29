@@ -1,4 +1,4 @@
-<%= form_with(model: train, local: true) do |form| %>
+<%= form_with(model: [:admin, train], local: true) do |form| %>
   <% if train.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(train.errors.count, "error") %> prohibited this train from being saved:</h2>

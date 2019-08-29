@@ -1,4 +1,6 @@
-class RoutesController < ApplicationController
+class Admin::RoutesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_admin
   before_action :set_route, only: [:show, :edit, :update, :destroy]
   before_action :set_stations, only: [:show, :edit, :update, :destroy]
 
@@ -21,7 +23,7 @@ class RoutesController < ApplicationController
         @route.railway_stations = @railway_stations
         @times = params[:times]
         Route.set_times(@route, @times)
-        redirect_to @route
+        redirect_to admin_route_path(@route), alert: "After create need to edit the route's positions. "
       else
         render :new
       end
@@ -34,9 +36,10 @@ class RoutesController < ApplicationController
     @railway_stations = RailwayStation.find(params[:model_ids])
     if @route.update(params_route)
       @route.railway_stations = @railway_stations
+      @route.save
       @times = params[:times]
       Route.set_times(@route, @times)
-      redirect_to @route
+      redirect_to admin_route_path(@route)
     else
       render :edit
     end
@@ -44,7 +47,7 @@ class RoutesController < ApplicationController
 
   def destroy
     @route.destroy
-    redirect_to routes_path
+    redirect_to admin_routes_path
   end
 
 

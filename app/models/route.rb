@@ -8,7 +8,11 @@ class Route < ApplicationRecord
     routes = []
     to.routes.each do |route|
       station = route.railway_stations.where(id: from.id).first
-      routes << station.routes.find_by(id: route.id) unless station.nil?
+      position_from = route.stations_routes.where(railway_station_id: from.id).first.position
+      position_to = route.stations_routes.where(railway_station_id: to.id).first.position
+      if position_from < position_to
+        routes << station.routes.find_by(id: route.id) unless station.nil?
+      end
     end
     return routes
   end

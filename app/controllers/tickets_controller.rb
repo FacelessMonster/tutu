@@ -1,7 +1,7 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
   before_action :collect_stations
-  before_action :authenticate_user!, only: :create
 
   def index
     @tickets = current_user.tickets.all
@@ -19,9 +19,6 @@ class TicketsController < ApplicationController
     @route = Route.find_by(id: params[:route])
   end
 
-  # GET /tickets/1/edit
-  def edit
-  end
 
   # POST /tickets
   def create
@@ -33,15 +30,6 @@ class TicketsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tickets/1
-  # PATCH/PUT /tickets/1.json
-  def update
-    if @ticket.update(ticket_params)
-      redirect_to @ticket, notice: 'Ticket was successfully updated.'
-    else
-      render :edit
-    end
-  end
 
   # DELETE /tickets/1
   def destroy

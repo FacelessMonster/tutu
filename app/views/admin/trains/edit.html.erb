@@ -2,7 +2,7 @@
 
 <%= render 'form', train: @train %>
 
-<%= form_for [@train, @train.carriages.build] do |f|%>
+<%= form_for [:admin, @train, @train.carriages.build] do |f|%>
 <%= f.radio_button(:type, 'ComfortCarriage') %>
 <%= f.label("Comfort") %>
 <%= f.radio_button(:type, "EconomyCarriage") %>
@@ -10,5 +10,5 @@
 <%= f.submit %>
 <%end%>
 
-<%= link_to 'Show', @train %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Show', [:admin, @train] %> |
+<%= link_to 'All Trains', admin_trains_path %>

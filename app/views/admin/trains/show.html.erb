@@ -2,7 +2,7 @@
 <p>Номер поезда: <%= @train.number %></p>
 <p>Маршрут: 
 <% unless @train.route.nil? %>
-  <%= link_to @train.route.name, @train.route %>
+  <%= link_to @train.route.name, [:admin, @train.route] %>
 <% else %>
   Маршрут не назначен!
 <% end %></p></hr>
@@ -11,7 +11,7 @@
 <p>Плацкарт: <%= @economy_carriages.length%>  Количество мест: <%= @economy_seats%></p><hr/>
 <div class="card-columns">
   <% @train.carriages.each do |carriage| %>
-    <%= link_to train_carriage_path(@train, carriage) do %>
+    <%= link_to admin_train_carriage_path(@train, carriage) do %>
       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
         <div class="card-header">Вагон № <%= carriage.number%>.</div>
         <div class="card-body">
@@ -23,5 +23,5 @@
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'All trains', trains_path %>
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'All trains', admin_trains_path %>

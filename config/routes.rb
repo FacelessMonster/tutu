@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :trains do
-    resources :carriages, only: [:create, :show]
+  namespace :admin do
+    resources :trains do
+      resources :carriages, only: [:create, :show]
+    end
+
+    resources :railway_stations, :routes
   end
 
+  resources :tickets, except: [:edit, :update]
   resource :search, only: [:show, :new, :edit]
-
-  resources :railway_stations, :tickets, :routes
-  root "trains#index"
+  root "searches#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
