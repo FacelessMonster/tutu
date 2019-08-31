@@ -9,19 +9,20 @@
     </tr>
   </thead>
 
-  <tbody>
     <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.start_station.title %></td>
-        <td><%= ticket.end_station.title %></td>
-        <td><%= link_to 'Show', ticket %></td>
-        <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="jumbotron">
+        <h3 class="lead"><%= ticket.person %></h3>
+        <p>Passport: <%= ticket.passport %></p>
+          <hr class="my-4">
+        <p>From: <%= ticket.start_station.title %> - to: <%= ticket.end_station.title %></p>
+        <p>Train: <%= ticket.train.number %> </br>
+          Carriage: <%= ticket.carriage.number %> </br>
+          <%= ticket.carriage.type %>
+        </p>
+        <span style="float: right;">
+        <%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'Railway Stations', admin_railway_stations_path %><br/>
-<%= link_to 'Routes', admin_routes_path %>

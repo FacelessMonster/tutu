@@ -1,15 +1,12 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_ticket, only: :destroy
   before_action :collect_stations
 
   def index
     @tickets = current_user.tickets.all
   end
 
-  # GET /tickets/1
-  def show
-  end
 
   # GET /tickets/new
   def new
@@ -24,7 +21,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params.merge(user_id: current_user.id))
     if @ticket.save
-      redirect_to @ticket, notice: 'Ticket was successfully created.'
+      redirect_to tickets_path, notice: 'Ticket was successfully created.'
     else
       render :new
     end

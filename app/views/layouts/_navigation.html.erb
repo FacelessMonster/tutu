@@ -28,6 +28,9 @@
         </li>
         <% else %>
         <li class="nav-item">
+          <a class="nav-link" href="<%= tickets_path %>">My tickets</a>
+        </li>
+        <li class="nav-item">
           <%= link_to "Quit", destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <% end %>

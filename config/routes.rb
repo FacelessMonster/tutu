@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :railway_stations, :routes
   end
 
-  resources :tickets, except: [:edit, :update]
+  resources :tickets, except: [:edit, :update, :show]
   resource :search, only: [:show, :new, :edit]
   root "searches#show"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
