@@ -3,7 +3,12 @@ class Route < ApplicationRecord
   has_many :railway_stations, through: :stations_routes, dependent: :destroy
   has_many :trains, class_name: "Train", foreign_key: "route_id"
 
+  validates :name, presence: true
+  validate :stations_count
+
   # validates :name, uniqueness: true
+  private
+
   def self.search_routes(from, to)
     routes = []
     to.routes.each do |route|
@@ -25,5 +30,9 @@ class Route < ApplicationRecord
         time.save
       end
     end
+  end
+
+  def stations_count
+    errors.add(:base, "Two stations minimum") if railway_stations.size < 2
   end
 end

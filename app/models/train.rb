@@ -3,5 +3,5 @@ class Train < ApplicationRecord
   has_many :tickets
   has_many :carriages
 
-  validates :number, uniqueness: true
+  validates :number, presence: true, uniqueness: true
 end

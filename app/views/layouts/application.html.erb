@@ -12,10 +12,13 @@
   <body>
     <%= render "layouts/navigation" %>
     <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice %>
+    <p class="notice alert alert-success" id="notice"><%= notice %></p>
+    <% elsif alert %>
+    <p class="alert alert-danger" id="notice"><%= alert %></p>
+    <% end %>
     <%= yield %>
     </div>
     <div id="footer">Учебное приложение по Ruby on Rails. Шамгулов Марс, 2019 год.</div>
-  </body>
+  </%=>
 </html>

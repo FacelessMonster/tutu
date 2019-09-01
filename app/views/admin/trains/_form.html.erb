@@ -12,10 +12,16 @@
   <% end %>
 
   <div class="actions">
-    <%= form.label :number%>
-    <%= form.number_field :number%>
+    <div class="row">
+    <div class="col-md-3">
+      <%= form.label :number%>
+      <%= form.number_field :number, class: "form-control"%>
+    </div>
     <% @routes = Route.all %>
-    <%= form.select 'route_id', options_from_collection_for_select(@routes, 'id', 'name'), {:include_blank => true } %>
-    <%= form.submit %>
+    <div class="col-md-4">
+      <%= form.label :route %>
+      <%= form.select 'route_id', options_from_collection_for_select(@routes, 'id', 'name'), {:include_blank => true } %>
+    </div>
+    <%= form.submit :Ok, class: "btn btn-sm btn-success" %>
   </div>
 <% end %>

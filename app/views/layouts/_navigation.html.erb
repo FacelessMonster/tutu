@@ -22,6 +22,8 @@
         <li class="nav-item">
           <a class="nav-link" href="<%= search_path %>">Ticket search</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
         <% unless signed_in? %>
         <li class="nav-item">
           <a class="nav-link" href="<%= new_user_session_path %>">Log in</a>

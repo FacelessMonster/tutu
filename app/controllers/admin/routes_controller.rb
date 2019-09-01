@@ -17,8 +17,8 @@ class Admin::RoutesController < ApplicationController
   end
 
   def create
-    @railway_stations = RailwayStation.find(params[:model_ids])
     @route = Route.new(params_route)
+    @railway_stations = RailwayStation.find(params[:model_ids]) if params.has_key?(:model_ids)
       if @route.save
         @route.railway_stations = @railway_stations
         @times = params[:times]

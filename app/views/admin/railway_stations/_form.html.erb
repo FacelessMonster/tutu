@@ -1,3 +1,4 @@
+
 <%= form_with(model: [:admin, railway_station], local: true) do |form| %>
   <% if railway_station.errors.any? %>
     <div id="error_explanation">
@@ -11,9 +12,13 @@
     </div>
   <% end %>
 
+  
+  <div class="field">
+      <%= form.label :title%>
+      <%= form.text_field :title, class: "form-control"%>
+  </div><br/>
   <div class="actions">
-    <%= form.label :title%>
-    <%= form.text_field :title%>
-    <%= form.submit %>
+    <%= form.submit "KK", class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" %>
   </div>
 <% end %>
+

@@ -17,15 +17,18 @@
     <%= form.text_field :name, class: "form-control"%>
   </div>
   <div class="field">
+  <div class="row">
+    <div class="col-sm-3"><b>Station</b></div>
+    <div class="col-md-3 ml-auto"><b>Time</b></div>
+  </div>
     <% RailwayStation.all.each do |model|%>
-      <div class="form-group">
+      <div class="row form-group">
         <%= check_box_tag('model_ids[]', model.id, checked = route.railway_stations.include?(model)) %>
         <%= label_tag model.title%>
-        <%= text_field_tag "times[#{model.id}]", nil, value: route.stations_routes.find_by(railway_station_id: model.id).try(:time) %>
-        <%= label_tag "Time"%>
+        <div class=" ml-auto" ><%= text_field_tag "times[#{model.id}]", nil, value: route.stations_routes.find_by(railway_station_id: model.id).try(:time), class: "form-control" %></div>
       </div>
     <%end%>
   </div>
-    <%= form.submit %>
+    <%= form.submit :SUBMIT, class: "btn btn-primary" %>
   </div>
 <% end %>
