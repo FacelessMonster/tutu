@@ -4,11 +4,11 @@
 
 <%= form_for [:admin, @train, @train.carriages.build] do |f|%>
 <%= f.radio_button(:type, 'ComfortCarriage') %>
-<%= f.label("Comfort") %>
+<%= f.label t('comfort') %>
 <%= f.radio_button(:type, "EconomyCarriage") %>
-<%= f.label("Economy") %>
+<%= f.label t('economy') %>
 <%= f.submit %>
 <%end%>
 
-<%= link_to 'Show', [:admin, @train] %> |
-<%= link_to 'All Trains', admin_trains_path %>
+<%= link_to t('show'), [:admin, @train] %> |
+<%= link_to t('back'), admin_trains_path %>

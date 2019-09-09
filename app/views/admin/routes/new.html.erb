@@ -1,7 +1,7 @@
 <div class="col-md-6">
-<h1>New Route</h1>
+<h1><%= t('new_route') %></h1>
 
 <%= render 'form', route: @route %>
 
-<%= link_to 'Back', admin_routes_path %>
+<%= link_to t('back'), admin_routes_path %>
 </div>

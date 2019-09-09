@@ -1,27 +1,27 @@
 
-<p>Номер поезда: <%= @train.number %></p>
-<p>Маршрут: 
+<p><%= t('train_number') %>: <%= @train.number %></p>
+<p><%= t('route') %>: 
 <% unless @train.route.nil? %>
   <%= link_to @train.route.name, [:admin, @train.route] %>
 <% else %>
   Маршрут не назначен!
 <% end %></p></hr>
-<p>Количество вагонов: <%= @train.carriages.length %></p>
-<p>Купе: <%= @comfort_carriages.length%> Количество мест: <%= @comfort_seats%></p>
-<p>Плацкарт: <%= @economy_carriages.length%>  Количество мест: <%= @economy_seats%></p><hr/>
+<p><%= t('number_of_carriages') %>: <%= @train.carriages.length %></p>
+<p><%= t('comfort') %>: <%= @comfort_carriages.length%> <%= t('number_of_seats') %>: <%= @comfort_seats%></p>
+<p><%= t('economy') %>: <%= @economy_carriages.length%> <%= t('number_of_seats') %>: <%= @economy_seats%></p><hr/>
 <div class="card-columns">
   <% @train.carriages.each do |carriage| %>
     <%= link_to admin_train_carriage_path(@train, carriage) do %>
       <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-        <div class="card-header">Вагон № <%= carriage.number%>.</div>
+        <div class="card-header"><%= t('carriage') %> № <%= carriage.number%>.</div>
         <div class="card-body">
-          <h5 class="card-title">Тип вагона: <%= carriage.type%>.</h5>
-          <p class="card-text">Количество мест: <%= carriage.seats%>.</p>
+          <h5 class="card-title"><%= t('carriage_type') %>: <%= carriage.type%>.</h5>
+          <p class="card-text"><%= t('number_of_seats') %>: <%= carriage.seats%>.</p>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
 
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'All trains', admin_trains_path %>
+<%= link_to t('edit'), edit_admin_train_path(@train) %> |
+<%= link_to t('back'), admin_trains_path %>

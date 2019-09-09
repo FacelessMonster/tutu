@@ -56,7 +56,10 @@ en:
   buy_ticket: "Buy ticket"
   serial_number: "Serial Number"
   full_name: "Full Name"
-
+  time: "Time"
   no_route: "No route found"
   editing_station: "Editing Railway Station"
   routes_name: "Route's name"
+  economy: "Economy"
+  comfort: "Comfort"
+  route: "Route"

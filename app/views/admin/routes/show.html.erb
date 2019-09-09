@@ -1,5 +1,5 @@
 <h2><%= @route.name %></h2>
-  <p>Список поездов на маршруте:</p>
+  <p><%= t('trains_list') %>: </p>
   <% @route.trains.each do |train|%>
   <p><%= link_to train.number, admin_train_path(train) %></p>
   <% end %>
@@ -7,7 +7,7 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <p><b>Маршрут:</b></p>
+    <p><b><%= t('route') %>:</b></p>
     <ul class="list-group">
       <% @stations.each do |station| %>
           <%= link_to admin_railway_station_path(station), class: "list-group-item" do %>
@@ -18,5 +18,5 @@
     </ul>
   </div>
 </div>
-<%= link_to 'Edit', edit_admin_route_path(@route)%>
-<%= link_to 'All routes', admin_routes_path %>
+<%= link_to t('edit'), edit_admin_route_path(@route)%>
+<%= link_to t('back'), admin_routes_path %>

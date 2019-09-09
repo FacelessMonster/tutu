@@ -19,7 +19,7 @@
     </div>
     <% @routes = Route.all %>
     <div class="col-md-4">
-      <%= form.label :route %>
+      <%= form.label t('route') %>
       <%= form.select 'route_id', options_from_collection_for_select(@routes, 'id', 'name'), {:include_blank => true } %>
     </div>
     <%= form.submit :Ok, class: "btn btn-sm btn-success" %>
