@@ -16,8 +16,8 @@
           <div style="text-align: right;">
           <%= route.stations_routes.find_by(railway_station_id: @to.id).try(:time) %>
           <h3 class="display-8"> <%= @to.title %></h3>
-          <div>
-          <%= submit_tag "Buy ticket", class: "btn btn-dark btn-lg" %>
+          </div>
+          <%= submit_tag t('buy_ticket'), class: "btn btn-dark btn-lg" %>
         <%end%>
       </div>
     <% end %>

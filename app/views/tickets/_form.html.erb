@@ -13,18 +13,20 @@
 
   <div class="actions">
     <%= form.label :person%>
-    <%= form.text_field :person, class: "form-control", placeholder: "Full Name" %>
+    <%= form.text_field :person, class: "form-control", placeholder: t('full_name') %>
     <%= form.label :passport%>
-    <%= form.text_field :passport, class: "form-control", placeholder: "serail number" %><br/>
+    <%= form.text_field :passport, class: "form-control", placeholder: t('serial_number') %><br/>
     <%= form.label :start_station_id%>
     <%= form.select 'start_station_id', options_from_collection_for_select(@railway_stations, 'id', 'title', selected: @from) %>
     <%= form.label :end_station_id%>
     <%= form.select 'end_station_id', options_from_collection_for_select(@railway_stations, 'id', 'title', selected: @to) %><br/>
+    <% if @trains.present? %>
     <%= form.label :train_id%>
-    <%= form.select 'train_id', options_from_collection_for_select(@route.trains.all, 'id', 'number') %>
+    <%= form.select 'train_id', options_from_collection_for_select(@trains, 'id', 'number', include_blank: "Select a train") %>
     <%= @route.try(:name) %><br/>
     <%= form.label :carriage_id%>
-    <%= form.select 'carriage_id', options_from_collection_for_select(@route.trains.first.carriages, 'id', 'type' ) %>
-    <%= form.submit :Submit, :class => 'btn btn-dark btn-sm', data: { confirm: 'Confirm purchase!' } %>
+    <%= form.select 'carriage_id', options_from_collection_for_select(@trains.first.try(:carriages), 'id', 'type', include_blank: "Select a train" ) %>
+    <% end %>
+    <%= form.submit :Ok, :class => 'btn btn-dark btn-sm', data: { confirm: 'Confirm purchase!' } %>
   </div>
 <% end %>

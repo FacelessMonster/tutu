@@ -13,9 +13,9 @@
     <% @railway_stations.each do |railway_station| %>
       <tr>
         <td><%= railway_station.title %></td>
-        <td><%= link_to 'Show', admin_railway_station_path(railway_station) %></td>
-        <td><%= link_to 'Edit', edit_admin_railway_station_path(railway_station) %></td>
-        <td><%= link_to 'Destroy', admin_railway_station_path(railway_station), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('show'), admin_railway_station_path(railway_station) %></td>
+        <td><%= link_to t('edit'), edit_admin_railway_station_path(railway_station) %></td>
+        <td><%= link_to t('destroy'), admin_railway_station_path(railway_station), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,6 +23,4 @@
 
 <br>
 
-<%= link_to 'New Railway Station', new_admin_railway_station_path %><br/>
-<%= link_to 'Trains', admin_trains_path %><br/>
-<%= link_to 'Routes', admin_routes_path %>
+<%= link_to t('new_station'), new_admin_railway_station_path %><br/>

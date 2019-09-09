@@ -10,17 +10,21 @@ class Route < ApplicationRecord
 
   def self.search_routes(from, to)
     routes = []
+    result = []
     to.routes.each do |route|
       station = route.railway_stations.where(id: from.id).first
       position_from = route.stations_routes.where(railway_station_id: from.id).first.try(:position)
       position_to = route.stations_routes.where(railway_station_id: to.id).first.try(:position)
       if position_from.present? && position_to.present?
-        if position_from < position_to
-          routes << station.routes.find_by(id: route.id) unless station.nil?
+        if position_from < position_to && !station.nil?
+          routes << station.routes.find_by(id: route.id)
         end
       end
     end
-    return routes
+    routes.each do |route|
+      result << route if !route.trains.present?
+    end
+    return result
   end
 
   def self.set_times(route, times)

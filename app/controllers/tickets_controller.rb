@@ -14,6 +14,7 @@ class TicketsController < ApplicationController
     @from = params[:start_station_id]
     @to = params[:end_station_id]
     @route = Route.find_by(id: params[:route])
+    @trains = @route.trains if @route.present?
   end
 
 

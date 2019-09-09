@@ -1,8 +1,8 @@
 <div class="col-md-4">
-<h1>Editing Railway Station</h1>
+<h1><%= t('editing_station')%></h1>
 
 <%= render 'form', railway_station: @railway_station %>
 
-<%= link_to 'Show', [:admin, @railway_station] %> |
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('show'), [:admin, @railway_station] %> |
+<%= link_to t('back'), admin_railway_stations_path %>
 </div>
