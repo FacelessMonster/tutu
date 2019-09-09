@@ -10,30 +10,30 @@
       <ul class="navbar-nav">
         <% if user_signed_in? && current_user.admin? %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= admin_trains_path %>">Trains</a>
+          <a class="nav-link" href="<%= admin_trains_path %>"><%= t('trains') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= admin_routes_path %>">Routes</a>
+          <a class="nav-link" href="<%= admin_routes_path %>"><%= t('routes') %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<%= admin_railway_stations_path %>">Stations</a>
+          <a class="nav-link" href="<%= admin_railway_stations_path %>"><%= t('stations') %></a>
         </li>
         <% end %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= search_path %>">Ticket search</a>
+          <a class="nav-link" href="<%= search_path %>"><%= t('search_title') %></a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
         <% unless signed_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= new_user_session_path %>">Log in</a>
+          <a class="nav-link" href="<%= new_user_session_path %>"><%= t('login') %></a>
         </li>
         <% else %>
         <li class="nav-item">
-          <a class="nav-link" href="<%= tickets_path %>">My tickets</a>
+          <a class="nav-link" href="<%= tickets_path %>"><%= t('my_tickets')%></a>
         </li>
         <li class="nav-item">
-          <%= link_to "Quit", destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <%= link_to t('quit'), destroy_user_session_path, method: :delete, class: "nav-link" %>
         </li>
         <% end %>
       </ul>

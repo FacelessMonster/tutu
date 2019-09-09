@@ -1,13 +1,16 @@
+<div class="row">
 <div class="col-sm-6">
 <h1>Editing Route "<%= @route.name %>"</h1>
 <%= render 'form', route: @route %>
+</div>
+<div class="col-sm-6">
 <b>Маршрут:</b>
 <ul id="stations" class="list-group sortable">
   <% @sr.each_with_sortable_id do |sr, sortable_id| %>
       <%= link_to sr.railway_station.title, [:admin, sr.railway_station], class: "list-group-item", id: sortable_id %>
   <% end %>
 </ul>
-
+</div>
+</div>
 <%= link_to 'Show', admin_route_path(@route) %>|
 <%= link_to 'Back', admin_routes_path %>
-</div>

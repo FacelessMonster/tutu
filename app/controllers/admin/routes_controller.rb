@@ -54,7 +54,7 @@ class Admin::RoutesController < ApplicationController
   private
 
   def params_route
-    params.require(:route).permit(:name, :time)
+    params.require(:route).permit(:name, :time, model_ids: [])
   end
 
   def set_route

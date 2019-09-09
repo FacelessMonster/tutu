@@ -1,10 +1,10 @@
-<h2>Ticket search.</h2>
+<h2><%= t('search_title') %></h2>
 <%= form_tag new_search_path, method: "get", class: "form" do %>
 <div class="form-group">
-  <%= label_tag "From"%>
+  <%= label_tag t('from')%>
   <%= text_field_tag :from, "", class: "form-control" %>
-  <%= label_tag "To"%>
+  <%= label_tag t('to')%>
   <%= text_field_tag :to, "", class: "form-control" %>
 </div>
-<%= submit_tag "Search", class: "btn btn-dark btn-lg" %>
+<%= submit_tag t('search'), class: "btn btn-dark btn-lg" %>
 <% end %>

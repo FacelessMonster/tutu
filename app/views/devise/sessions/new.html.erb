@@ -6,7 +6,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <h3 class="login-heading mb-4"><%= t('welcome_back')%></h3>
                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                   <div class="form-label-group">
                     <%= f.label :email %><br />
@@ -26,7 +26,7 @@
                   <% end %>
 
                   <div class="actions">
-                    <%= f.submit "SIGN IN", class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" %>
+                    <%= f.submit t('sign_in'), class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" %>
                   </div>
                 <% end %>
                 <div class="text-center">
