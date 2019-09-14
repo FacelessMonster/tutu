@@ -22,7 +22,7 @@ class Route < ApplicationRecord
       end
     end
     routes.each do |route|
-      result << route if !route.trains.present?
+      result << route if route.trains.present?
     end
     return result
   end
