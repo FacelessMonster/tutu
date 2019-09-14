@@ -1,0 +1,5 @@
+<p>Privet <%= @user.email %></p>
+<p>Вы приобрели билет по маршруту <%= @ticket.start_station.title %> - <%= @ticket.end_station.title %></p>
+<p>Вагон: <%= @ticket.carriage.number %> <%= @ticket.carriage.type %></p>
+<p>Поезд: <%= @ticket.train.number %></p>
+<p>Счастливого пути!</p>
