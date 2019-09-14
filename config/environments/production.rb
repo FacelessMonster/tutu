@@ -97,8 +97,8 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'tutu-app.herokuapp.com',
-    user_name:            'ENV.fetch('MAIL_ACCOUNT_NAME')',
-    password:             'ENV.fetch('MAIL_PASSWORD')',
+    user_name:            ENV.fetch('MAIL_ACCOUNT_NAME'),
+    password:             ENV.fetch('MAIL_PASSWORD'),
     authentication:       'plain',
     enable_starttls_auto: true }
 end
