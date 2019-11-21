@@ -33,3 +33,4 @@
 .idea
 .vscode
 *.DS_Store
+*.sqlite33
