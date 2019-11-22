@@ -21,9 +21,9 @@
 //= require jquery_ujs
 //= require rails_sortable
 
-$(document).on("turbolinks:load", function() {
+$(document).on("turbolinks:load", function () {
 
-  $(function() {
+  $(function () {
     $('.sortable').railsSortable();
   });
 
