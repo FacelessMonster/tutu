@@ -9,6 +9,6 @@ describe Route, '.set_times' do
     route.stations_routes.create(railway_station_id: last_station.id)
     times = { first_station.id => '10:00', last_station.id => '22:00' }
     Route.set_times(route, times)
-    expect(StationsRoute.where(id: first_station.id).first.time).to eq '10:00'
+    expect(StationsRoute.where(railway_station_id: first_station.id).first.time).to eq '10:00'
   end
 end
